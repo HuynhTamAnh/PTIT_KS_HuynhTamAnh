@@ -5,58 +5,18 @@
     font-family: Montserrat, sans-serif;
 }
 
-.book{
-    height: 30px;
-    width: 30px;
-}
-
-.des{
-    letter-spacing: 1px;
-}
-
-ul{
-    display: flex;
-    list-style-type: none;
-    margin: 0px;
-    padding: 10px 45px;
-    text-align: center;
-    letter-spacing: 5px;
-}
-
-nav #menu li a
-{
-  /* color: #fff; */
-  text-decoration: none;
-  display: block;
-  padding: 5px 5px;
-  font-size: 15px;
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color:#e84393;
-
-}
-
-.button{
-    border: none;
-    background-color: aqua;
-    padding: 5px;
-    border-radius:10px;
-}
-
-.top .top_left .anh1{
-    height: 450px;
-    width: 400px;
-}
-
 .top{
     display: flex;
     justify-content: center ;
     align-items: center;
     background-color: #fd79a8;
+}
+
+.button{
+    border: none;
+    background-color: rgb(0, 100, 255);
+    padding: 5px;
+    border-radius:10px;
 }
 
 .top_right{
@@ -70,6 +30,7 @@ nav {
 .mid{
     margin-top: 50px;
     display:flex;
+    justify-content: space-evenly;
 }
 
 .icon{
@@ -93,6 +54,8 @@ nav {
     margin-left: 600px;
     white-space: nowrap;
 }
+
+
 
 .mid_1{
     margin-top: 80px;
@@ -226,36 +189,32 @@ nav {
 
 .mid_2{
     margin-top: 100px;
-    display: flex;
-    justify-content: space-around;
 }
 
-.form {
+/* .form {
     display: flex;
     justify-content: space-between;
     width: 300px;
     padding: 10px;
     border-radius: 5px;
-  }
+  } */
   
-  .input-field {
+  /* .input-field {
     width: 150px;
     padding: 10px;
     border: none;
     border: 1px solid;
     border-color: grey;
-  }
+  } */
   
-  .button {
+  /* .button {
     width: 95%;
     padding: 10px;
     background-color: blue;
     color: white;
     border: none;
     cursor: pointer;
-  }
-
-
+  } */
 
   .mid_3 {
     text-align: center;
@@ -285,33 +244,15 @@ nav {
     line-height: 1.6;
 }
 
-.navbar2 {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    margin-left: 150px;
-    margin-top: 20px;
+.nav{
+    margin-left: 100px;
 }
-  
-  .navbar2 li {
-    float: left;
+
+.nav-underline .nav-link:hover {
+    color: green; /* Màu sắc khi di chuột vào */
   }
-  
-  .navbar2 li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-  
-  
-.navbar2 li a:hover {
-    border-bottom: 2px solid #00FF00;
-}
-  
-.mid_4{
+
+  .mid_4{
     margin-top: 70px;
     display: grid;
     grid-template-areas: 
@@ -328,7 +269,7 @@ nav {
   border-radius: 10px;
   border: 1px solid black;
   overflow: hidden;
-  width: 280px;
+  width: 345px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
@@ -360,6 +301,7 @@ nav {
     display: block;
     padding: 15px;
 }
+
 .item14 .anh{
     background-color: rgba(119, 0, 255, 0.315);
     border-radius: 10px;
@@ -436,7 +378,7 @@ nav {
   border-radius: 10px;
   border: 1px solid black;
   overflow: hidden;
-  width: 280px;
+  width: 345px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
@@ -454,7 +396,7 @@ nav {
     border-radius: 10px;
     border: 1px solid black;
     overflow: hidden;
-    width: 280px;
+    width: 345px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     align-items: center;
     justify-content: center;
@@ -472,7 +414,7 @@ nav {
   border-radius: 10px;
   border: 1px solid black;
   overflow: hidden;
-  width: 280px;
+  width: 345px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
@@ -490,7 +432,7 @@ nav {
   border-radius: 10px;
   border: 1px solid black;
   overflow: hidden;
-  width: 280px;
+  width: 345px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
@@ -505,7 +447,6 @@ nav {
 ul .navbar{
     font-weight:20px;
 }
-
 
 
 .form {
@@ -543,18 +484,12 @@ ul .navbar{
 .mid_5{
     margin-top: 100px;
     display: flex;
+    justify-content: space-evenly;
 }
 
-img #lienlac{
-    position: relative;
-    height: 160px;
-    width:50px;
+.infAll{
+    margin-left: -175px;
 }
-
-/* .time{
-    font-size: 10px;
-} */
-
 .Footer {
     background-color: #1a1a2e;
   }
@@ -584,10 +519,11 @@ img #lienlac{
     justify-content: space-between;
     padding: 20px;
     flex-wrap: nowrap;
-    margin-right: 45px;
+    margin-right: 30px;
   }
   .des2 div {
     width: 30%;
+    margin-left: 80px;
   }
   .des2 h3 {
     font-size: 20px;
@@ -607,6 +543,7 @@ img #lienlac{
   }
   .Footer2 p {
     color: rgb(186, 186, 186);
+    margin-left: -140px;
   }
   .Footer2 .Footer2_blue {
     color: rgb(35, 128, 251);
@@ -614,3 +551,10 @@ img #lienlac{
   .Footer2 .Footer2_blue span {
     color: red;
   }
+
+/* .inf{
+    margin-top: 70px;
+} */
+/* .inf1{
+    margin-top: 70px;
+} */

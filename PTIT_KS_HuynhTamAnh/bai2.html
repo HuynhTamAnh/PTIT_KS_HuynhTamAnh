@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Management</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Projects</h1>
+      <div class="row mb-3">
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-at"></i></span>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Project Name"
+              id="projectName"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-at"></i></span>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Image URL"
+              id="imageUrl"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-at"></i></span>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Link"
+              id="link"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-at"></i></span>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Tags (Ex: React, Angular)"
+              id="tags"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <button class="btn btn-primary" onclick="addProject()">
+            + New Project
+          </button>
+        </div>
+      </div>
+
+      <table id="projectTable" class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Project Name</th>
+            <th>Image URL</th>
+            <th>Link</th>
+            <th>Tags</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="projectTableBody"></tbody>
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+      let projects = [];
+
+      function saveProjects() {
+        localStorage.setItem("projects", JSON.stringify(projects));
+      }
+function loadProjects() {
+        let savedProjects = localStorage.getItem("projects");
+        if (savedProjects) {
+          projects = JSON.parse(savedProjects);
+          displayProjects();
+        }
+      }
+
+      function displayProjects() {
+        let tbody = document.getElementById("projectTableBody");
+        tbody.innerHTML = "";
+
+        projects.forEach((project, index) => {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${project.name}</td>
+                <td><img src="${project.image}" width="50" height="50"></td>
+                <td><a href="${project.link}" target="_blank">${
+            project.link
+          }</a></td>
+                <td>${project.tags
+                  .map(
+                    (tag) =>
+                      `<button class="btn btn-secondary btn-sm tag-btn" disabled>${tag}</button>`
+                  )
+                  .join("")}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" onclick="deleteProject(${index})">Delete</button>
+                    <button class="btn btn-info btn-sm" onclick="editProject(${index})">Update</button>
+                </td>
+            `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function addProject() {
+        let projectName = document.getElementById("projectName").value;
+        let imageUrl = document.getElementById("imageUrl").value;
+        let link = document.getElementById("link").value;
+        let tags = document
+          .getElementById("tags")
+          .value.split(",")
+          .map((tag) => tag.trim());
+
+        if (projectName && imageUrl && link && tags.length > 0) {
+          let newProject = {
+            name: projectName,
+            image: imageUrl,
+            link: link,
+            tags: tags,
+          };
+          projects.push(newProject);
+          saveProjects();
+          displayProjects();
+        } else {
+          alert("Please fill in all fields.");
+        }
+      }
+
+      function editProject(index) {
+        let newName = prompt("Enter new project name:", projects[index].name);
+        let newImageUrl = prompt("Enter new image URL:", projects[index].image);
+        let newLink = prompt("Enter new link:", projects[index].link);
+        let newTagsInput = prompt(
+          "Enter new tags (separated by commas):",
+          projects[index].tags.join(", ")
+        );
+        let newTags = newTagsInput
+          ? newTagsInput.split(",").map((tag) => tag.trim())
+          : projects[index].tags;
+
+        if (
+          newName !== null &&
+          newImageUrl !== null &&
+          newLink !== null &&
+          newTags !== null
+        ) {
+          projects[index].name = newName || projects[index].name;
+          projects[index].image = newImageUrl || projects[index].image;
+          projects[index].link = newLink || projects[index].link;
+          projects[index].tags =
+newTags.length > 0 ? newTags : projects[index].tags;
+          saveProjects();
+          displayProjects();
+        } else {
+          alert("Operation canceled. No changes made.");
+        }
+      }
+
+      function deleteProject(index) {
+        if (confirm("Are you sure you want to delete this project?")) {
+          projects.splice(index, 1);
+          saveProjects();
+          displayProjects();
+        }
+      }
+
+      loadProjects();
+    </script>
+  </body>
+</html>
