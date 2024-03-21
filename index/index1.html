@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index1.css">
+</head>
+<body>
+    <div class="input">
+        <input 
+            class="display" 
+            type="text"
+            placeholder="project name"
+            id="project_name"
+            />
+                
+        <input 
+            class="display"
+            type="text"
+            placeholder="img url"
+            id="img_url"
+            required
+        />
+
+        <input 
+            class="display"
+            type="text"
+            placeholder="link"
+            id="link"
+            required
+        />
+
+        <input 
+            class="display"
+            type="text"
+            placeholder="tags"
+            id="tag"
+            required
+        />
+
+        <button 
+            class="display"
+            id="new_project"
+            style="background-color: lightblue; width: 200px; height: 50px">
+            +new project
+        </button>
+    </div>
+
+    <table id="projectTable">
+        <tr>
+            <th>Project Name</th>
+            <th>Image URL</th>
+            <th>Link</th>
+            <th>Tags</th>
+            <th>Action</th>
+        </tr>
+    </table>
+    <script src="index1.js"></script>
+</body>
+</html>

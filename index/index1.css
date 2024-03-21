@@ -1,0 +1,40 @@
+*{
+    font-family: Arial, sans-serif;
+    margin-top: auto;
+}
+
+.input{
+    display: inline-flex;
+}
+
+.display{
+    margin-left: 10%;
+    height: 20px;
+}
+
+#new_project{
+    margin-bottom: 10px;
+}
+
+#projectTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#projectTable th, #projectTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#projectTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#projectTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: lightgray;
+    color: rgb(0, 0, 0);
+}
